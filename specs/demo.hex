@@ -1,3 +1,16 @@
-conjure mana to 60
-bind chaos from mana + 13
-if chaos exceeds 70 then whisper "The spell is complete."
+# demo.hex - Ritual Demo Scroll
+
+conjure name to "Archmage CJ"
+whisper "The summoning has begun..."
+
+ritual greet with who
+    whisper "✨ Greetings, " + who
+end
+
+greet with name
+
+ritual multiply with a, b
+    whisper a + " * " + b + " = " + (a + b)  # not real multiply, just shows syntax
+end
+
+multiply with "3", "4"
