@@ -1,55 +1,12 @@
-# Numerical Constants
-conjure pi to 3.14159
-conjure tau to 6.28318
-conjure e to 2.71828
-conjure golden to 1.61803
-conjure void to 0
-conjure one to 1
-conjure true to 1
-conjure false to 0
+# Standard library for HexLang
 
-# Utility Spells
-conjure answer to 42
-conjure year to 2025
-conjure hour to 3600
-conjure day to 86400
+conjure pi to 3.1415
+conjure e to 2.7182
 
-# Spellmath Shortcuts
-bind double_pi from pi * 2
-bind half_pi from pi / 2
-bind log_base10_of_e from e / 2.3026
+ritual greet with name
+    whisper "✨ Hello, " + name
+end
 
-# Vibes & Emo Spells
-conjure darkness to 999
-conjure light to 1
-conjure abyss to -999
-conjure sanity to 5
-conjure chaos to 13
-conjure edge to 666
-
-# Placeholder Runes
-conjure foo to 7
-conjure bar to 11
-conjure baz to foo + bar
-
-# Boolean Logic (kinda fake, still vibes)
-bind truth from true * true
-bind lie from true * false
-bind paradox from true + false
-
-# Easter Eggs
-conjure life to 100
-conjure magic to 100
-conjure spell_slots to 9
-conjure mana_cost to 5
-bind can_cast from mana_cost < magic
-
-# Ritual Buffer Values
-conjure temp to 0
-conjure cache to 0
-conjure buffer to 0
-
-# Legendary Runes
-conjure runes_of_power to 777
-conjure runes_of_regret to 404
-conjure runes_of_eternity to 99999
+ritual magic_number with
+    return 42
+end
