@@ -1,99 +1,52 @@
-HEXLANG
-=======
+# ⬢ Hex Language
 
-🧙‍♂️ The spell-based programming language for alien rituals, magical computation, and forbidden digital sorcery.
+**Hex** is a programming language for humans who are tired of semicolons and want their code to sound like texting their smartest friend.
 
-HexLang is a weird, arcane, minimal programming language designed to feel like casting spells on your computer. Variables are conjured. Functions are rituals. Output is whispered. It's not just a language — it's an ideology.
+> You don’t write code. You *talk to it.*
 
-📜 Example Ritual
------------------
-```
-conjure mana to 40
-bind fury from mana + 66
-if fury exceeds 100 then whisper "THE GATE OPENS"
-```
-🧠 Philosophy
--------------
+## ✨ Example
 
-HexLang is:
-
-- **Arcane**: Syntax is magical, not mathematical. It reads like a ritual.
-- **Minimal**: Tiny interpreter, dead simple execution model.
-- **Bootstrapped**: We're building HexLang in HexLang. Yes, seriously. Self-hosting is the end goal.
-- **Ridiculously readable**: You don't write code, you write spells.
-- **Chaotic neutral**: Not meant for production. Meant for *power*.
-
-🛠 Project Layout
------------------
-```md
-hexlang/
-├── .gitignore                # Ignore Python crap, PyScript temp, node_modules, etc.
-├── LICENSE                   # MIT or "Forbidden Rites License", your call
-├── README.md                 # Already conjured
-├── hexlang_runtime.py        # Interpreter with function spell support (TO BE UPDATED)
-├── /docs                     # GitHub Pages site
-│   ├── demo.html             # Live demo (PyScript embed)
-│   ├── grimorie.md           # Full spell reference (glossary, rituals, stdlib)
-│   └── index.md              # Homepage content (spooky intro, usage, guide)
-├── /specs
-│   └── demo.hex              # Example rituals + usage
-└── /stdlib
-    └── __init__.hex          # Default spell constants and whispers
-  
-```
-⚙️ Getting Started
--------------------
-
-1. Clone the repo
-```bash
-   git clone https://github.com/HexCodeLang/hexlang.git
-   cd hexlang
-```
-2. Run a ritual
-```python
-   python hexlang_runtime.py specs/demo.hex
-```
-3. Write your own spell
 ```hex
-   conjure energy to 10
-   bind output from energy * 2
-   whisper output
+let’s make a number called apples = 5
+say "apples initialized"
+ask the user for their name
+if apples > 3, say "you got lots of apples!"
+whenever you need to greet, say "hey there!"
+greet now
 ```
-💡 Language Primer
--------------------
+## ❓ Why Hex?
+- Reads like a damn conversation
 
-- conjure <var> to <value>          — variable declaration
-- bind <var> from <expression>      — assign a computed value
-- whisper <thing>                   — print to stdout
-- if <var> exceeds <num> then ...   — basic conditional
+- Makes coding less scary, more sassy
 
-🧪 Coming Soon
---------------
+- Friendly, readable, teachable
 
-- Loops (ritual cycles)
-- Functions (custom rituals)
-- Imports (summon other spell files)
-- Compiler (eventually written in HexLang itself)
-- Browser-based REPL and live spell editor
-- Totally unnecessary and probably cursed AI integration
+- Zero punctuation anxiety™
 
-🔥 Contributing
-----------------
+🛠 How to Run
+```
+python hex.py path/to/yourfile.hex
+```
+## 📚 Learn the Language
+See docs/grammar.md for all supported commands.
 
-Got a spell to share? Think the parser should summon demons instead of throwing errors? Want to help write the first self-hosting compiler? Open an issue, fork the repo, or just vibe.
+## 🚀 Roadmap
+- ✅ Variables, print, input
 
-We accept pull requests, pull demons, and pull chaos into the runtime.
+- ✅ If statements & loops
 
-📖 License
------------
+- ✅ One-line functions
 
-HexLang is released under the MIT License, because code wants to be free and so do the ancient ones.
+- Multiline functions
 
-🪦 Warning
-----------
+- Arithmetic like “add 5 to apples”
 
-This language is experimental, incomplete, and borderline unholy. Use at your own risk. Side effects may include: terminal possession, stack overflows, runtime hauntings, and questions from your teacher.
+- Web-based interpreter
 
----
+- AI-powered Hex autocomplete?
 
-"Code is just magic we understand."
+## 🧙‍♀️ Contribute
+Pull requests welcome. Add new syntax, break stuff, start arguments in Issues.
+
+## 📜 License
+MIT or the Do Whatever You Want License. Hex doesn’t care.
