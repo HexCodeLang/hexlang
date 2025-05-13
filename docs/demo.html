@@ -30,13 +30,14 @@
   </style>
 </head>
 <body>
-  <h1>🔮 HexLang Demo</h1>
+  <h1>🔮HexLang Demo</h1>
   <textarea id="spell" placeholder="Write your spell here..."></textarea>
   <button py-click="cast()">🪄 Cast</button>
   <pre id="output"></pre>
 
   <py-script>
-from pyodide.ffi import create_proxy
+from pyodide.ffi 
+import create_proxy
 import js
 
 variables = {}
