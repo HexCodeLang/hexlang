@@ -1,4 +1,7 @@
+# hex.py - The Hex Language Interpreter v0.1
+
 import re
+import sys
 
 variables = {}
 functions = {}
@@ -13,7 +16,7 @@ def run_hex(code):
 
         # Print
         if line.startswith("say "):
-            message = re.search(r'say "(.*)"', line)
+            message = re.search(r'say \"(.*)\"', line)
             if message:
                 say(message.group(1))
 
@@ -51,7 +54,7 @@ def run_hex(code):
 
         # One-liner function definition
         elif line.startswith("whenever you need to "):
-            match = re.match(r'whenever you need to (\w+), say "(.*)"', line)
+            match = re.match(r'whenever you need to (\w+), say \"(.*)\"', line)
             if match:
                 name, message = match.groups()
                 functions[name] = lambda msg=message: say(msg)
@@ -62,14 +65,10 @@ def run_hex(code):
             if func_name in functions:
                 functions[func_name]()
 
-# Test it
 if __name__ == "__main__":
-    hex_code = """
-    let’s make a number called apples = 5
-    say "apples initialized"
-    ask the user for their name
-    if apples > 3, say "you got lots of apples!"
-    whenever you need to greet, say "hey there!"
-    greet now
-    """
-    run_hex(hex_code)
+    if len(sys.argv) != 2:
+        print("Usage: python hex.py <file.hex>")
+    else:
+        with open(sys.argv[1], 'r') as f:
+            hex_code = f.read()
+        run_hex(hex_code)
