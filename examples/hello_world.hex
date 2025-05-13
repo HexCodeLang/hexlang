@@ -1,0 +1,5 @@
+say "Hello, Hex World!"
+let’s make a number called apples = 5
+if apples > 3, say "You got lots of apples!"
+whenever you need to greet, say "Hey there!"
+greet now
