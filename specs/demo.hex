@@ -1,3 +1,3 @@
-conjure mana to 40
-bind fury from mana + 66
-if fury exceeds 100 then whisper "THE GATE OPENS"
+conjure mana to 60
+bind chaos from mana + 13
+if chaos exceeds 70 then whisper "The spell is complete."
