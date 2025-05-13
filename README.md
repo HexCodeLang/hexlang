@@ -29,8 +29,13 @@ HexLang is:
 hexlang/
 ├── hexlang_runtime.py      # The bootstrap interpreter (v0.1, written in Python)
 ├── specs/                  # Ritual test files written in .hex
-├── docs/                   # (Coming soon) Grimoires, spellbooks, and theory
-└── stdlib/                 # (Planned) Standard rituals and built-in incantations
+   └──demo.hex              
+├── docs/                   # Grimoires, spellbooks, and theory
+     ├──grimorie.md
+     ├──index.md
+     └──demo.html     
+└── stdlib/                 # Standard rituals and built-in incantations
+    └── __init__.hex     
 ```
 ⚙️ Getting Started
 -------------------
