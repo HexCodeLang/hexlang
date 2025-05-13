@@ -1,116 +1,112 @@
-# hexlang_runtime.py
-
-import sys
-
-# Global state (main scope)
 variables = {}
 rituals = {}
+
+def eval_expr(expr, scope):
+    expr = expr.strip()
+    try:
+        # Literal string
+        if expr.startswith('"') and expr.endswith('"'):
+            return expr[1:-1]
+        # Integer
+        elif expr.isdigit():
+            return int(expr)
+        # Float
+        elif expr.replace('.', '', 1).isdigit() and '.' in expr:
+            return float(expr)
+        # Variable
+        elif expr in scope:
+            return scope[expr]
+        elif expr in variables:
+            return variables[expr]
+        # Math expressions
+        elif '+' in expr or '-' in expr or '*' in expr or '/' in expr:
+            return eval_math(expr, scope)
+        else:
+            return expr
+    except Exception as e:
+        return f"[error: {str(e)}]"
+
+def eval_math(expr, scope):
+    for var in scope:
+        expr = expr.replace(var, str(scope[var]))
+    for var in variables:
+        expr = expr.replace(var, str(variables[var]))
+    try:
+        return eval(expr)
+    except Exception as e:
+        return f"[math error: {e}]"
 
 def execute(lines, scope=None):
     if scope is None:
         scope = {}
 
     i = 0
+    output = ""
+    return_val = None
     while i < len(lines):
         line = lines[i].strip()
         if not line or line.startswith("#"):
             i += 1
             continue
-
         tokens = line.split()
 
-        # --- Ritual definition ---
-        if tokens[0] == "ritual":
-            name = tokens[1]
-            if "with" in tokens:
-                args_index = tokens.index("with")
-                args = tokens[args_index + 1:]
-            else:
-                args = []
-
-            body = []
-            i += 1
-            while i < len(lines) and lines[i].strip() != "end":
-                body.append(lines[i])
+        try:
+            if tokens[0] == "ritual":
+                name = tokens[1]
+                args = tokens[tokens.index("with")+1:] if "with" in tokens else []
+                body = []
                 i += 1
-            rituals[name] = {"args": args, "body": body}
-            i += 1
-            continue
+                while i < len(lines) and lines[i].strip() != "end":
+                    body.append(lines[i])
+                    i += 1
+                rituals[name] = {"args": args, "body": body}
+                i += 1
+                continue
 
-        # --- Ritual call ---
-        if tokens[0] in rituals and "with" in tokens:
-            name = tokens[0]
-            args_index = tokens.index("with")
-            call_args = tokens[args_index + 1:]
+            if tokens[0] in rituals and "with" in tokens:
+                name = tokens[0]
+                call_args = tokens[tokens.index("with")+1:]
+                ritual = rituals[name]
+                local_scope = dict(zip(ritual["args"], [eval_expr(arg, scope) for arg in call_args]))
+                result = execute(ritual["body"], local_scope)
+                if isinstance(result, tuple):
+                    output += result[0]
+                    return_val = result[1]
+                else:
+                    output += result
+                i += 1
+                continue
 
-            ritual = rituals[name]
-            if len(call_args) != len(ritual["args"]):
-                raise Exception(f"Incorrect number of arguments for {name}")
-            new_scope = dict(zip(ritual["args"], [eval_expr(arg, scope) for arg in call_args]))
-            execute(ritual["body"], new_scope)
-            i += 1
-            continue
+            if tokens[0] == "conjure":
+                var_name = tokens[1]
+                value = eval_expr(" ".join(tokens[3:]), scope)
+                scope[var_name] = value
+                variables[var_name] = value
+                i += 1
+                continue
 
-        # --- conjure ---
-        if tokens[0] == "conjure":
-            var_name = tokens[1]
-            if tokens[2] != "to":
-                raise Exception("Invalid syntax for conjure")
-            value = eval_expr(" ".join(tokens[3:]), scope)
-            scope[var_name] = value
-            i += 1
-            continue
+            if tokens[0] == "bind":
+                var_name = tokens[1]
+                value = eval_expr(" ".join(tokens[3:]), scope)
+                if var_name in scope:
+                    scope[var_name] = value
+                else:
+                    variables[var_name] = value
+                i += 1
+                continue
 
-        # --- bind ---
-        if tokens[0] == "bind":
-            var_name = tokens[1]
-            if tokens[2] != "to":
-                raise Exception("Invalid syntax for bind")
-            value = eval_expr(" ".join(tokens[3:]), scope)
-            scope[var_name] = value
-            i += 1
-            continue
+            if tokens[0] == "whisper":
+                msg = eval_expr(line.split(" ", 1)[1], scope)
+                output += str(msg) + "\n"
+                i += 1
+                continue
 
-        # --- whisper ---
-        if tokens[0] == "whisper":
-            message = line.split(" ", 1)[1]
-            print(eval_expr(message, scope))
-            i += 1
-            continue
+            if tokens[0] == "return":
+                return_val = eval_expr(" ".join(tokens[1:]), scope)
+                return (output, return_val)
 
-        else:
-            raise Exception(f"Unknown incantation: {line}")
+        except Exception as e:
+            output += f"[runtime error: {e}]\n"
+        i += 1
 
-def eval_expr(expr, scope):
-    expr = expr.strip()
-    if expr.startswith('"') and expr.endswith('"'):
-        return expr[1:-1]
-    elif expr.isdigit():
-        return int(expr)
-    elif expr in scope:
-        return scope[expr]
-    elif expr in variables:
-        return variables[expr]
-    elif "+" in expr:
-        parts = expr.split("+")
-        return "".join(str(eval_expr(p.strip(), scope)) for p in parts)
-    elif "-" in expr:
-        parts = expr.split("-")
-        return eval_expr(parts[0], scope) - eval_expr(parts[1], scope)
-    else:
-        raise Exception(f"Unknown expression: {expr}")
-
-def load_stdlib():
-    try:
-        with open("stdlib/__init__.hex") as f:
-            execute(f.readlines(), variables)
-    except FileNotFoundError:
-        print("Warning: No stdlib loaded.")
-
-if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: python hexlang_runtime.py your_script.hex")
-        sys.exit(1)
-    load_stdlib()
-    with open(sys.argv[1]) as f:
-        execute(f.readlines(), variables)
+    return (output, return_val) if return_val is not None else output
