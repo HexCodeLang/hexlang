@@ -121,10 +121,11 @@ def execute(lines, scope=None):
 
 def cast():
     raw = js.document.getElementById("spell").value
+    console.log(f"Cast triggered with spell: {raw}")  # Logging for debugging
     lines = raw.splitlines()
     output = execute(lines)
+    console.log(f"Output: {output}")  # Logging output
     js.document.getElementById("output").textContent = output
-
   </py-script>
 </body>
 </html>
