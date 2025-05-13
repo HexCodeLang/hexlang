@@ -1,63 +1,39 @@
-import re
 import sys
 
-env = {}
+variables = {}
 
-def tokenize(code):
-    return code.strip().splitlines()
-
-def eval_line(line):
-    line = line.strip()
-
-    # conjure var to 13
-    match = re.match(r"conjure (\w+) to (.+)", line)
-    if match:
-        var, val = match.groups()
-        env[var] = eval_expr(val)
-        return
-
-    # bind var from a + b
-    match = re.match(r"bind (\w+) from (.+)", line)
-    if match:
-        var, expr = match.groups()
-        env[var] = eval_expr(expr)
-        return
-
-    # whisper "message"
-    match = re.match(r'whisper "(.*)"', line)
-    if match:
-        print(match.group(1))
-        return
-
-    # whisper var
-    match = re.match(r"whisper (.+)", line)
-    if match:
-        val = eval_expr(match.group(1))
-        print(val)
-        return
-
-    # if x exceeds y then whisper "msg"
-    match = re.match(r'if (\w+) exceeds (\d+) then whisper "(.*)"', line)
-    if match:
-        var, threshold, msg = match.groups()
-        if env.get(var, 0) > int(threshold):
-            print(msg)
-        return
-
-def eval_expr(expr):
-    expr = expr.strip()
+def evaluate(expr):
     try:
-        return eval(expr, {}, env)
+        return eval(expr, {}, variables)
     except:
-        return env.get(expr, expr)
+        return expr
 
-def run_hex_file(path):
-    with open(path) as f:
-        for line in tokenize(f.read()):
-            if line: eval_line(line)
+def run(lines):
+    for line in lines:
+        line = line.strip()
+        if line.startswith("conjure "):
+            _, var, _, value = line.split()
+            variables[var] = evaluate(value)
+        elif line.startswith("bind "):
+            parts = line.split()
+            var = parts[1]
+            expr = ' '.join(parts[3:])
+            variables[var] = evaluate(expr)
+        elif line.startswith("whisper "):
+            msg = line[8:]
+            val = evaluate(msg)
+            print(val)
+        elif line.startswith("if "):
+            parts = line.split()
+            var = parts[1]
+            comp = parts[2]
+            val = int(parts[3])
+            if comp == "exceeds" and variables.get(var, 0) > val:
+                if "whisper" in line:
+                    message = line.split("whisper", 1)[1].strip().strip('"')
+                    print(message)
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: hex myscript.hex")
-    else:
-        run_hex_file(sys.argv[1])
+    path = sys.argv[1]
+    with open(path) as f:
+        run(f.readlines())
