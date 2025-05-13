@@ -1,16 +1,22 @@
-# demo.hex - Ritual Demo Scroll
+# HexLang v1.0.1 Demo
 
-conjure name to "Archmage CJ"
-whisper "The summoning has begun..."
+conjure user to "CJ the Arcane"
 
-ritual greet with who
-    whisper "✨ Greetings, " + who
+whisper "Welcome, " + user
+
+ritual double with n
+    conjure result to n * 2
+    return result
 end
 
-greet with name
+conjure x to 4
+conjure y to double with x
 
-ritual multiply with a, b
-    whisper a + " * " + b + " = " + (a + b)  # not real multiply, just shows syntax
+whisper "Double of " + x + " is " + y
+
+ritual add with a, b
+    return a + b
 end
 
-multiply with "3", "4"
+conjure sum to add with 5, 7
+whisper "5 + 7 = " + sum
