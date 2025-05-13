@@ -55,6 +55,29 @@ if chaos exceeds 50 then whisper "The gate opens."
 ```
 ---
 
+## 🧠 Math and Types
+
+- Supports integers and floats` (`3`, `4.5`)`
+- Math: `+`, `-`, `*`, `/`
+- ``x + y`` will auto-coerce types
+- ``"5"`` stays a string — but `5` is treated as numeric
+
+---
+
+## 🪄 Ritual Returns
+
+Use `return` to return a value from a ritual:
+```
+ritual power with x
+return x * x
+end
+```
+---
+
+## ❌ Errors
+
+- Bad math or variables won't crash the ritual.
+- Errors are printed as `[error: something]`
 ## 🧪 SOON TO BE SUMMONED
 
 Planned future spells and syntax:
