@@ -27,22 +27,26 @@ HexLang is:
 -----------------
 ```md
 hexlang/
-├── hexlang_runtime.py      # The bootstrap interpreter (v0.1, written in Python)
-├── specs/                  # Ritual test files written in .hex
-   └──demo.hex              
-├── docs/                   # Grimoires, spellbooks, and theory
-     ├──grimorie.md
-     ├──index.md
-     └──demo.html     
-└── stdlib/                 # Standard rituals and built-in incantations
-    └── __init__.hex     
+├── .gitignore                # Ignore Python crap, PyScript temp, node_modules, etc.
+├── LICENSE                   # MIT or "Forbidden Rites License", your call
+├── README.md                 # Already conjured
+├── hexlang_runtime.py        # Interpreter with function spell support (TO BE UPDATED)
+├── /docs                     # GitHub Pages site
+│   ├── demo.html             # Live demo (PyScript embed)
+│   ├── grimorie.md           # Full spell reference (glossary, rituals, stdlib)
+│   └── index.md              # Homepage content (spooky intro, usage, guide)
+├── /specs
+│   └── demo.hex              # Example rituals + usage
+└── /stdlib
+    └── __init__.hex          # Default spell constants and whispers
+  
 ```
 ⚙️ Getting Started
 -------------------
 
 1. Clone the repo
 ```bash
-   git clone https://github.com/YOUR_ORG/hexlang.git
+   git clone https://github.com/HexCodeLang/hexlang.git
    cd hexlang
 ```
 2. Run a ritual
