@@ -7,11 +7,11 @@ HexLang is a weird, arcane, minimal programming language designed to feel like c
 
 📜 Example Ritual
 -----------------
-
+```
 conjure mana to 40
 bind fury from mana + 66
 if fury exceeds 100 then whisper "THE GATE OPENS"
-
+```
 🧠 Philosophy
 -------------
 
