@@ -1,0 +1,23 @@
+# Conditional logic examples in HexLang
+
+say "🔀 HexLang Conditional Examples"
+say "================================"
+say ""
+
+let’s make a number called age = 25
+let’s make a number called price = 50
+let’s make a number called quantity = 100
+
+say "Testing conditions:"
+say ""
+
+if age > 18, say "✓ User is an adult"
+if price > 30, say "✓ Price is above $30"
+if quantity > 50, say "✓ We have plenty in stock"
+
+say ""
+let’s make a number called discount = 10
+if discount = 10, say "✓ 10% discount applied!"
+
+say ""
+say "Conditional demo complete!"

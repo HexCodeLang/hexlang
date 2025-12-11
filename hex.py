@@ -8,6 +8,10 @@ def say(message):
     print(message)
 
 def run_hex(code):
+    global variables, functions
+    variables = {}
+    functions = {}
+    
     lines = code.strip().split('\n')
     for line in lines:
         line = line.strip()
@@ -65,7 +69,8 @@ def run_hex(code):
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
-        print("Usage: python hex.py <file.hex>")
+        print("Usage: python hex.py <file.hexlang>")
+        print("Note: For full features, use 'hexlang' command instead")
     else:
         with open(sys.argv[1], 'r') as f:
             hex_code = f.read()
