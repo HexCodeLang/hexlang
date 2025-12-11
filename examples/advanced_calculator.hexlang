@@ -50,26 +50,42 @@ say "💭 Calculating..."
 say "════════════════════════════════════════"
 say ""
 
+# Set result to num1 initially
+let's make a number called result = num1
+
 # Perform calculation based on choice
-if choice = 1, let's make a number called result = num1 + num2
+# Addition
+if choice = 1, add num2 to result
 if choice = 1, say "✓ Addition: {num1} + {num2} = {result}"
 
-if choice = 2, let's make a number called result = num1 - num2
+# Subtraction
+if choice = 2, let's make a number called result = num1
+if choice = 2, subtract num2 from result
 if choice = 2, say "✓ Subtraction: {num1} - {num2} = {result}"
 
-if choice = 3, let's make a number called result = num1 * num2
+# Multiplication
+if choice = 3, let's make a number called result = num1
+if choice = 3, multiply result by num2
 if choice = 3, say "✓ Multiplication: {num1} × {num2} = {result}"
 
-if choice = 4, let's make a number called result = num1 / num2
+# Division
+if choice = 4, let's make a number called result = num1
+if choice = 4, divide result by num2
 if choice = 4, say "✓ Division: {num1} ÷ {num2} = {result}"
 
-if choice = 5, let's make a number called result = num1 ** num2
+# Power
+if choice = 5, let's make a number called result = num1
+if choice = 5, raise result to the power of num2
 if choice = 5, say "✓ Power: {num1} ^ {num2} = {result}"
 
-if choice = 6, let's make a number called result = num1 % num2
+# Modulo
+if choice = 6, let's make a number called result = num1
+if choice = 6, get remainder of result divided by num2
 if choice = 6, say "✓ Modulo: {num1} % {num2} = {result}"
 
-if choice = 7, let's make a number called result = num1 ** 0.5
+# Square Root
+if choice = 7, let's make a number called result = num1
+if choice = 7, raise result to the power of 0.5
 if choice = 7, say "✓ Square Root: √{num1} = {result}"
 
 say ""
@@ -90,15 +106,18 @@ say "─────────────────────────
 say ""
 
 # Double the result
-let's make a number called doubled = result * 2
+let's make a number called doubled = result
+multiply doubled by 2
 say "Double: {result} × 2 = {doubled}"
 
 # Square the result
-let's make a number called squared = result * result
+let's make a number called squared = result
+multiply squared by result
 say "Squared: {result}² = {squared}"
 
 # Half the result  
-let's make a number called halved = result / 2
+let's make a number called halved = result
+divide halved by 2
 say "Half: {result} ÷ 2 = {halved}"
 
 say ""

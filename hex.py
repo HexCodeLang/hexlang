@@ -118,8 +118,9 @@ def run_hex(code):
         # Handle otherwise/else
         if line.startswith("otherwise, ") or line.startswith("otherwise "):
             if skip_next:
-                i += 1
+                # Skip this otherwise because previous if was true
                 skip_next = False
+                i += 1
                 continue
             else:
                 # Execute the otherwise branch
@@ -128,17 +129,15 @@ def run_hex(code):
                 i += 1
                 continue
         
-        # Check if we should skip this line (because previous condition was true)
+        # Reset skip_next if we encounter a non-otherwise line
         if skip_next:
             skip_next = False
-            i += 1
-            continue
         
         # Execute line and check if it was an if statement
         was_if, condition_result = execute_line(line)
         if was_if:
             last_condition_result = condition_result
-            # If condition was true, skip next otherwise
+            # If condition was true, skip next otherwise (if there is one)
             if condition_result:
                 skip_next = True
         
