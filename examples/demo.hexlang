@@ -1,0 +1,55 @@
+# 🍭 HexLang Demo - Showcasing all language features
+# This is a comprehensive demo of the HexLang programming language
+
+say "=========================================="
+say "🍭 Welcome to HexLang!"
+say "=========================================="
+say ""
+
+# Variables demonstration
+say "📦 VARIABLES:"
+let’s make a number called apples = 5
+let’s make a number called oranges = 10
+let’s make a number called total = 15
+say "Created variables: apples=5, oranges=10, total=15"
+say ""
+
+# Conditional statements
+say "🔀 CONDITIONALS:"
+if apples > 3, say "✓ You have more than 3 apples!"
+if oranges > 20, say "✗ You have more than 20 oranges (this won't print)"
+if total = 15, say "✓ Total is exactly 15!"
+say ""
+
+# Functions demonstration
+say "⚡ FUNCTIONS:"
+whenever you need to greet, say "Hello from HexLang!"
+whenever you need to celebrate, say "🎉 Awesome!"
+whenever you need to farewell, say "Goodbye, friend!"
+
+greet now
+celebrate now
+say ""
+
+# More conditionals
+say "🎯 MORE EXAMPLES:"
+let’s make a number called score = 95
+if score > 90, say "✓ Excellent score! You got an A!"
+let’s make a number called temperature = 25
+if temperature > 20, say "✓ It's a warm day!"
+say ""
+
+# Function calls
+say "🚀 FUNCTION EXECUTION:"
+farewell now
+say ""
+
+say "=========================================="
+say "✨ Demo Complete!"
+say "=========================================="
+say ""
+say "HexLang is a language for humans."
+say "No semicolons. No complex syntax."
+say "Just natural, conversational code."
+say ""
+say "Learn more at: github.com/HexCodeLang/hexlang"

@@ -1,0 +1,20 @@
+# Function examples in HexLang
+
+say "⚡ HexLang Function Examples"
+say "============================"
+say ""
+
+# Define multiple functions
+whenever you need to start, say "🚀 Starting the program..."
+whenever you need to process, say "⚙️  Processing data..."
+whenever you need to finish, say "✅ All done!"
+
+# Call the functions
+start now
+say ""
+process now
+say ""
+finish now
+say ""
+
+say "Function demo complete!"

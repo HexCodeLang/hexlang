@@ -1,0 +1,20 @@
+# Simple calculator example in HexLang
+
+say "🧮 HexLang Calculator"
+say "===================="
+say ""
+
+let’s make a number called first = 10
+let’s make a number called second = 5
+let’s make a number called sum = 15
+let’s make a number called product = 50
+
+say "First number: 10"
+say "Second number: 5"
+say ""
+
+if sum = 15, say "✓ 10 + 5 = 15"
+if product = 50, say "✓ 10 * 5 = 50"
+
+say ""
+say "Calculator demo complete!"
