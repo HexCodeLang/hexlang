@@ -57,6 +57,7 @@ hexlang --help                   # Show help
 
 ## 📚 Documentation
 
+- [Quick Start Guide](docs/quickstart.md) - Get started in 5 minutes!
 - [Installation Guide](docs/installation.md) - Detailed installation instructions
 - [Grammar Guide](docs/grammar.md) - Language syntax reference
 - [Examples](examples/) - Sample programs
