@@ -1,0 +1,35 @@
+# List Operations Demo
+# Demonstrating list/array functionality
+
+say "📚 List Operations Demo"
+say "======================="
+say ""
+
+# Create a list
+let's make a list called fruits = ["apple", "banana", "orange"]
+say "Created list of fruits:"
+for each fruit in fruits, say the fruit
+say ""
+
+# Create a number list
+let's make a list called numbers = [1, 2, 3, 4, 5]
+say "Created list of numbers:"
+for each num in numbers, say the num
+say ""
+
+# Add items to list
+add "grape" to list fruits
+say "Added grape to fruits list"
+say ""
+
+# Empty list
+let's make a list called tasks = []
+add "Learn HexLang" to list tasks
+add "Build apps" to list tasks
+add "Have fun" to list tasks
+
+say "Task list:"
+for each task in tasks, say the task
+say ""
+
+say "✨ List operations complete!"

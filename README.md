@@ -7,12 +7,33 @@
 ## ✨ Example
 
 ```hexlang
+# Variables with different types
 let's make a number called apples = 5
-say "apples initialized"
-ask the user for their name
-if apples > 3, say "you got lots of apples!"
-whenever you need to greet, say "hey there!"
-greet now
+let's make a string called name = "Alice"
+let's make a list called fruits = ["apple", "banana", "orange"]
+
+# String interpolation
+say "Hello, {name}! You have {apples} apples."
+
+# Arithmetic operations
+add 3 to apples
+multiply apples by 2
+say "After calculations: {apples}"
+
+# Conditionals with else
+if apples > 10, say "You got lots of apples!"
+otherwise, say "You need more apples!"
+
+# Multiline functions with parameters
+whenever you need to greet with person:
+    say "Hey there, {person}!"
+    say "Welcome to HexLang!"
+done
+
+greet with name now
+
+# List operations
+for each fruit in fruits, say the fruit
 ```
 
 ## 🚀 Quick Start
@@ -65,25 +86,36 @@ hexlang --help                   # Show help
 ## 🎯 Features
 
 - ✅ Natural, conversational syntax
-- ✅ Variables and data types
-- ✅ Conditional statements (if/then)
-- ✅ Functions (one-liners)
-- ✅ User input
+- ✅ Variables (numbers, strings, lists)
+- ✅ String interpolation with {variable}
+- ✅ Arithmetic operations (add, subtract, multiply, divide, power, modulo)
+- ✅ Conditional statements (if/then/otherwise)
+- ✅ Multiline functions with parameters
+- ✅ List operations (create, add items, iterate)
+- ✅ User input with auto-type detection
 - ✅ `.hexlang` file extension
 - ✅ Standalone compiler/interpreter
 - ✅ Auto-compilation to Python bytecode
 - ✅ Comprehensive demo program
+- ✅ Full-featured calculator application
 
 ## 🚀 Roadmap
 
-- [x] Variables, print, input
-- [x] If statements & loops
-- [x] One-line functions
+- [x] Variables (numbers, strings, lists)
+- [x] Print, input with auto-type detection
+- [x] If/else statements  
+- [x] For loops
+- [x] Multiline functions with parameters
+- [x] Arithmetic operations (add, subtract, multiply, divide, power, modulo)
+- [x] String interpolation
+- [x] List operations
 - [x] Standalone language with .hexlang extension
 - [x] Auto-compiler to bytecode
 - [x] Comprehensive demo
-- [ ] Multiline functions
-- [ ] Arithmetic like "add 5 to apples"
+- [x] Full-featured calculator application
+- [ ] While loops
+- [ ] Try/catch error handling
+- [ ] File I/O operations
 - [ ] Web-based interpreter
 
 ## 📜 License

@@ -1,0 +1,45 @@
+# Conditional Logic with Else/Otherwise
+# Demonstrating if/else statements
+
+say "🔀 Conditional Logic Demo"
+say "========================="
+say ""
+
+# Simple if/else
+let's make a number called temperature = 25
+say "Current temperature: {temperature}°C"
+say ""
+
+if temperature > 30, say "🔥 It's hot!"
+otherwise, say "❄️ It's cool!"
+say ""
+
+# More conditionals
+let's make a number called score = 85
+say "Your score: {score}"
+say ""
+
+if score >= 90, say "Grade: A - Excellent!"
+otherwise, if score >= 80, say "Grade: B - Good!"
+say ""
+
+# Testing different values
+let's make a number called age = 15
+say "Age: {age}"
+say ""
+
+if age >= 18, say "✓ You are an adult"
+otherwise, say "✗ You are a minor"
+say ""
+
+# Number comparison
+let's make a number called x = 10
+let's make a number called y = 20
+say "Comparing x={x} and y={y}"
+say ""
+
+if x > y, say "x is greater than y"
+otherwise, say "y is greater than or equal to x"
+say ""
+
+say "✨ Conditional logic demo complete!"
