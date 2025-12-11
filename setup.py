@@ -14,7 +14,7 @@ setup(
     name="hexlang",
     version="1.0.0",
     author="HexLang Contributors",
-    author_email="",
+    author_email="hexlang@example.com",
     description="A programming language for humans who are tired of semicolons",
     long_description=long_description,
     long_description_content_type="text/markdown",
@@ -39,9 +39,6 @@ setup(
         ],
     },
     include_package_data=True,
-    package_data={
-        "": ["examples/*.hexlang", "docs/*.md"],
-    },
     keywords="programming-language interpreter compiler hexlang",
     project_urls={
         "Bug Reports": "https://github.com/HexCodeLang/hexlang/issues",

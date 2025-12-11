@@ -20,11 +20,10 @@ def compile_to_python(hexlang_file, output_file=None):
     with open(hexlang_file, 'r') as f:
         hex_code = f.read()
     
-    # Generate Python wrapper code
+    # Generate Python wrapper code using safer approach
+    # Use repr which is safer than direct interpolation
     python_code = f'''#!/usr/bin/env python3
-# Auto-generated from {hexlang_file}
-import sys
-sys.path.insert(0, {repr(os.path.dirname(os.path.abspath(__file__)))})
+# Auto-generated from {os.path.basename(hexlang_file)}
 from hex import run_hex
 
 hex_code = {repr(hex_code)}
