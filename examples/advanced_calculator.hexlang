@@ -1,0 +1,109 @@
+# 🧮 Advanced HexLang Calculator
+# A fully featured calculator application demonstrating HexLang's capabilities
+
+say "╔════════════════════════════════════════╗"
+say "║   🧮 HexLang Advanced Calculator 🧮   ║"
+say "╔════════════════════════════════════════╗"
+say ""
+say "Welcome to the most natural calculator!"
+say "Let's do some math together!"
+say ""
+
+# Initialize calculator variables
+let's make a number called result = 0
+let's make a number called memory = 0
+let's make a string called operation = "none"
+
+# Display menu
+say "════════════════════════════════════════"
+say "📋 Calculator Menu"
+say "════════════════════════════════════════"
+say ""
+say "Basic Operations:"
+say "  1. Addition (+)"
+say "  2. Subtraction (-)"
+say "  3. Multiplication (×)"
+say "  4. Division (÷)"
+say ""
+say "Advanced Operations:"
+say "  5. Power (^)"
+say "  6. Modulo (%)"
+say "  7. Square Root"
+say ""
+say "════════════════════════════════════════"
+say ""
+
+# Get first number
+ask "Enter your first number:" and store in num1
+say ""
+
+# Get operation choice
+ask "Choose operation (1-7):" and store in choice
+say ""
+
+# Get second number for binary operations
+if choice < 7, ask "Enter your second number:" and store in num2
+say ""
+
+say "════════════════════════════════════════"
+say "💭 Calculating..."
+say "════════════════════════════════════════"
+say ""
+
+# Perform calculation based on choice
+if choice = 1, let's make a number called result = num1 + num2
+if choice = 1, say "✓ Addition: {num1} + {num2} = {result}"
+
+if choice = 2, let's make a number called result = num1 - num2
+if choice = 2, say "✓ Subtraction: {num1} - {num2} = {result}"
+
+if choice = 3, let's make a number called result = num1 * num2
+if choice = 3, say "✓ Multiplication: {num1} × {num2} = {result}"
+
+if choice = 4, let's make a number called result = num1 / num2
+if choice = 4, say "✓ Division: {num1} ÷ {num2} = {result}"
+
+if choice = 5, let's make a number called result = num1 ** num2
+if choice = 5, say "✓ Power: {num1} ^ {num2} = {result}"
+
+if choice = 6, let's make a number called result = num1 % num2
+if choice = 6, say "✓ Modulo: {num1} % {num2} = {result}"
+
+if choice = 7, let's make a number called result = num1 ** 0.5
+if choice = 7, say "✓ Square Root: √{num1} = {result}"
+
+say ""
+say "════════════════════════════════════════"
+say "🎯 Final Result: {result}"
+say "════════════════════════════════════════"
+say ""
+
+# Save to memory
+let's make a number called memory = result
+say "💾 Result saved to memory!"
+say ""
+
+# Show more operations we can do with result
+say "────────────────────────────────────────"
+say "📊 Additional Calculations"
+say "────────────────────────────────────────"
+say ""
+
+# Double the result
+let's make a number called doubled = result * 2
+say "Double: {result} × 2 = {doubled}"
+
+# Square the result
+let's make a number called squared = result * result
+say "Squared: {result}² = {squared}"
+
+# Half the result  
+let's make a number called halved = result / 2
+say "Half: {result} ÷ 2 = {halved}"
+
+say ""
+say "════════════════════════════════════════"
+say "✨ Thank you for using HexLang Calculator!"
+say "════════════════════════════════════════"
+say ""
+say "Remember: Math is just talking to numbers! 🎉"

@@ -1,0 +1,33 @@
+# String Operations Demo
+# Demonstrating string handling in HexLang
+
+say "🎨 String Operations Demo"
+say "========================="
+say ""
+
+# Create strings
+let's make a string called greeting = "Hello"
+let's make a string called name = "World"
+let's make a string called message = "HexLang is awesome!"
+
+say "String variables created:"
+say greeting
+say name
+say message
+say ""
+
+# String interpolation
+say "📝 String Interpolation:"
+say "Greeting: {greeting}"
+say "Name: {name}"
+say "Message: {message}"
+say ""
+
+# Combine with numbers
+let's make a number called age = 25
+let's make a string called person = "Alice"
+say "📊 Mixing strings and numbers:"
+say "{person} is {age} years old"
+say ""
+
+say "✨ Demo complete!"

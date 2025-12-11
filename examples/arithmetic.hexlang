@@ -1,0 +1,52 @@
+# Advanced Arithmetic Operations
+# Demonstrating all arithmetic features
+
+say "🔢 Advanced Arithmetic Demo"
+say "============================"
+say ""
+
+# Basic arithmetic
+let's make a number called x = 10
+say "Starting with x = {x}"
+say ""
+
+say "➕ Addition:"
+add 5 to x
+say "After adding 5: x = {x}"
+say ""
+
+say "➖ Subtraction:"
+subtract 3 from x
+say "After subtracting 3: x = {x}"
+say ""
+
+say "✖️ Multiplication:"
+multiply x by 2
+say "After multiplying by 2: x = {x}"
+say ""
+
+say "➗ Division:"
+divide x by 4
+say "After dividing by 4: x = {x}"
+say ""
+
+# Advanced operations
+let's make a number called base = 2
+say "Working with base = {base}"
+say ""
+
+say "⚡ Power:"
+raise base to the power of 8
+say "2 to the power of 8 = {base}"
+say ""
+
+# Modulo
+let's make a number called dividend = 17
+let's make a number called divisor = 5
+say "Modulo operation:"
+say "Dividend: {dividend}, Divisor: {divisor}"
+get remainder of dividend divided by divisor
+say "Remainder: {dividend}"
+say ""
+
+say "✨ Arithmetic demo complete!"

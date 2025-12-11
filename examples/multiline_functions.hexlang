@@ -1,0 +1,57 @@
+# Multiline Functions Demo
+# Demonstrating function definitions with parameters
+
+say "⚡ Multiline Functions Demo"
+say "==========================="
+say ""
+
+# Define a simple multiline function
+whenever you need to welcome:
+    say "════════════════════════"
+    say "   Welcome to HexLang!  "
+    say "════════════════════════"
+done
+
+# Call the function
+say "Calling welcome function:"
+welcome now
+say ""
+
+# Define a function with parameters
+whenever you need to greet_person with name:
+    say "Hello, {name}!"
+    say "Nice to meet you!"
+done
+
+say "Calling greet_person with parameter:"
+greet_person with "Alice" now
+say ""
+greet_person with "Bob" now
+say ""
+
+# Function with multiple parameters
+whenever you need to calculate_area with width and height:
+    let's make a number called area = width * height
+    say "Width: {width}"
+    say "Height: {height}"
+    say "Area: {area}"
+done
+
+say "Calculating rectangle area:"
+calculate_area with 5 and 10 now
+say ""
+
+# Function with more complex logic
+whenever you need to check_number with num:
+    if num > 0, say "{num} is positive"
+    if num < 0, say "{num} is negative"
+    if num = 0, say "{num} is zero"
+done
+
+say "Checking numbers:"
+check_number with 42 now
+check_number with -17 now
+check_number with 0 now
+say ""
+
+say "✨ Functions demo complete!"
