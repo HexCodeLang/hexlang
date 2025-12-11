@@ -1,6 +1,5 @@
 import re
 import sys
-import math
 
 variables = {}
 functions = {}
@@ -97,7 +96,7 @@ def run_hex(code):
                 continue
         
         # Handle function body end
-        if in_function_def and (line == "that's it" or line == "that's it" or line == "done"):
+        if in_function_def and (line == "that's it" or line == "done"):
             function_bodies[current_function] = {
                 'params': current_function_params,
                 'body': current_function_body[:]
@@ -168,7 +167,7 @@ def execute_line(line):
                     say(str(variables[var]))
         return (False, False)
 
-    # Variable Declaration - number
+    # Variable Declaration - number (handle both regular and fancy apostrophes)
     elif line.startswith("let's make a number called ") or line.startswith("let's make a number called "):
         match = re.match(r"let'?s make a number called (\w+) = (.+)", line)
         if match:
@@ -176,7 +175,7 @@ def execute_line(line):
             variables[var] = evaluate_expression(value)
         return (False, False)
 
-    # Variable Declaration - string
+    # Variable Declaration - string (handle both regular and fancy apostrophes)
     elif line.startswith("let's make a string called ") or line.startswith("let's make a string called "):
         match = re.match(r"let'?s make a string called (\w+) = \"(.*)\"", line)
         if match:
@@ -189,7 +188,7 @@ def execute_line(line):
                 variables[var] = str(evaluate_expression(expr))
         return (False, False)
     
-    # Variable Declaration - list
+    # Variable Declaration - list (handle both regular and fancy apostrophes)
     elif line.startswith("let's make a list called ") or line.startswith("let's make a list called "):
         match = re.match(r"let'?s make a list called (\w+) = \[(.*)\]", line)
         if match:

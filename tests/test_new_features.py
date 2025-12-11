@@ -82,7 +82,7 @@ set_value with 42 now
 
 def test_run_arithmetic_example():
     """Test arithmetic example file"""
-    result = subprocess.run(["python", "hex.py", "examples/arithmetic.hexlang"], 
+    result = subprocess.run([sys.executable, "hex.py", "examples/arithmetic.hexlang"], 
                           capture_output=True, text=True)
     assert "Advanced Arithmetic Demo" in result.stdout
     assert "After adding 5: x = 15" in result.stdout
@@ -90,21 +90,21 @@ def test_run_arithmetic_example():
 
 def test_run_strings_example():
     """Test strings example file"""
-    result = subprocess.run(["python", "hex.py", "examples/strings.hexlang"], 
+    result = subprocess.run([sys.executable, "hex.py", "examples/strings.hexlang"], 
                           capture_output=True, text=True)
     assert "String Operations Demo" in result.stdout
     assert "Greeting: Hello" in result.stdout
 
 def test_run_lists_example():
     """Test lists example file"""
-    result = subprocess.run(["python", "hex.py", "examples/lists.hexlang"], 
+    result = subprocess.run([sys.executable, "hex.py", "examples/lists.hexlang"], 
                           capture_output=True, text=True)
     assert "List Operations Demo" in result.stdout
     assert "Learn HexLang" in result.stdout
 
 def test_run_multiline_functions_example():
     """Test multiline functions example file"""
-    result = subprocess.run(["python", "hex.py", "examples/multiline_functions.hexlang"], 
+    result = subprocess.run([sys.executable, "hex.py", "examples/multiline_functions.hexlang"], 
                           capture_output=True, text=True)
     assert "Multiline Functions Demo" in result.stdout
     assert "Hello, Alice!" in result.stdout
